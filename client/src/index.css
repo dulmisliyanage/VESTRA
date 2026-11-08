@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+/* ==========================================
+   VESTRA — TAILWIND THEME
+   ========================================== */
+
+@theme {
+  --font-sans: "Didot", "Bodoni MT", "Times New Roman", serif;
+}
+
+/* ==========================================
+   VESTRA — GLOBAL STYLES
+   ========================================== */
+
+:root {
+  font-family: "Didot", "Bodoni MT", "Times New Roman", serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Consistent element sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Full-width responsive layout */
+html {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Didot", "Bodoni MT", "Times New Roman", serif;
+}
+
+/* Remove Vite starter layout restrictions */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: initial;
+  font-family: inherit;
+}
+
+/* Responsive images and videos */
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==========================================
+   VESTRA — GLOBAL TYPOGRAPHY
+   ========================================== */
+
+/* Form elements inherit the global font */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Consistent heading typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* Consistent body typography */
+p,
+span,
+a,
+label,
+li {
+  font-family: inherit;
+}
+
+/* ==========================================
+   VESTRA — HOME PAGE ANIMATIONS
+   ========================================== */
+
+/* Premium fade and upward movement */
+@keyframes vestraHeroReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+   Apply animations to Home page elements.
+
+   The .vestra-home class should be present
+   on the Home page's main element.
+*/
+
+.vestra-home .vestra-reveal {
+  animation-name: vestraHeroReveal;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+/* ==========================================
+   STAGGERED ENTRANCE DELAYS
+   ========================================== */
+
+/* THE VESTRA EDIT */
+.vestra-home .vestra-delay-1 {
+  animation-delay: 0.15s;
+}
+
+/* Discover Your Style */
+.vestra-home .vestra-delay-2 {
+  animation-delay: 0.4s;
+}
+
+/* Hero description */
+.vestra-home .vestra-delay-3 {
+  animation-delay: 0.65s;
+}
+
+/* Explore Collection button */
+.vestra-home .vestra-delay-4 {
+  animation-delay: 0.9s;
+}
+
+/* ==========================================
+   VESTRA — BUTTON HOVER ANIMATION
+   ========================================== */
+
+.vestra-home .vestra-button {
+  transition:
+    transform 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.vestra-home .vestra-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .vestra-home .vestra-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .vestra-home .vestra-button {
+    transition: none;
+  }
+
+  .vestra-home .vestra-button:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@keyframes vestraFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   VESTRA — PREMIUM PRODUCT CARD ANIMATIONS
+   ========================================== */
+
+/* Gentle card lift */
+.vestra-product-card {
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.vestra-product-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Smooth image zoom */
+.vestra-product-image {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vestra-product-card:hover .vestra-product-image {
+  transform: scale(1.06);
+}
+
+/* Product title underline */
+.vestra-product-title {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 5px;
+  transition: text-decoration-color 0.3s ease;
+}
+
+.vestra-product-card:hover .vestra-product-title {
+  text-decoration-color: currentColor;
+}
+
+/* Keyboard accessibility */
+.vestra-product-card:focus-visible {
+  outline: 2px solid #191919;
+  outline-offset: 5px;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  .vestra-product-card,
+  .vestra-product-image {
+    transition: none;
+  }
+
+  .vestra-product-card:hover {
+    transform: none;
+  }
+
+  .vestra-product-card:hover .vestra-product-image {
+    transform: none;
+  }
+}

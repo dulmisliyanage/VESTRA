@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Didot", "Bodoni MT", "Times New Roman", serif;
+}
+
+/* ==========================================
+   VESTRA - GLOBAL DESIGN SYSTEM
+   Primary Font: Didot
+   ========================================== */
+
+:root {
+  font-family: "Didot", "Bodoni MT", "Times New Roman", serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Full-width responsive layout */
+html {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  font-family: inherit;
+}
+
+/* React root layout */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: initial;
+}
+
+/* Consistent typography across the website */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* Responsive media */
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Keep product images correctly cropped */
+img {
+  height: auto;
+}
