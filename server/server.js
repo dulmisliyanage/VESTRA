@@ -18,6 +18,7 @@ const orderRoutes = require("./routes/orderRoutes");
 const sellerOrderRoutes = require("./routes/sellerOrderRoutes");
 
 const app = express();
+app.set("trust proxy", 1);
 
 // Environment configuration
 const PORT = process.env.PORT || 5000;
