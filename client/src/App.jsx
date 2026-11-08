@@ -13,6 +13,7 @@ import { useCart } from "./context/CartContext";
 // Components
 import ProtectedRoute from "./routes/ProtectedRoute";
 import CartIcon from "./components/CartIcon";
+import ProductMarquee from "./components/ProductMarquee";
 
 // Public pages
 import Shop from "./pages/Shop";
@@ -41,6 +42,8 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 // HOME PAGE
 // ========================================
 
+
+
 function Home() {
   const reveal = (delay) => ({
     animationName: "vestraFadeUp",
@@ -52,6 +55,7 @@ function Home() {
 
   return (
     <main className="min-h-[75vh] bg-[#faf9f6] px-6 py-20 text-center text-[#191919]">
+
       <div className="mx-auto flex max-w-4xl flex-col items-center justify-center">
 
         <p
@@ -85,9 +89,15 @@ function Home() {
         </Link>
 
       </div>
+
+      {/* MOVING PRODUCT IMAGES BELOW HERO TEXT */}
+      <ProductMarquee />
+
     </main>
   );
 }
+
+
 
 // ========================================
 // ACCOUNT PAGE
@@ -304,18 +314,7 @@ function Navbar() {
           )}
 
           {/* CART */}
-          <NavLink
-            to="/cart"
-            className={({ isActive }) =>
-              `relative flex items-center gap-1 border-b pb-1 transition-all duration-300 ${isActive
-                ? "border-black text-black"
-                : "border-transparent text-neutral-500 hover:border-neutral-400 hover:text-black"
-              }`
-            }
-            aria-label={`Shopping cart with ${cartCount} items`}
-          >
-            <CartIcon />
-          </NavLink>
+          <CartIcon />
 
         </nav>
       </div>
